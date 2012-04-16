@@ -9,9 +9,9 @@
  --                   THE AMX ORGANIZATION                   --
     
     
-    This library contains the code to report various notifications
-    to the system developer.  Source code and documentation can be
-    obtained from the website listed above.
+    This library contains the code to perform logging and report
+    various notifications to the system developer.  Source code
+    and documentation can be obtained from the website listed above.
     
     It is recommended to use LOG_LEVEL_WARNING or LOG_LEVEL_INFO
     in a production environment.
