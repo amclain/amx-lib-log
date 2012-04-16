@@ -33,7 +33,7 @@ DEFINE_MUTUALLY_EXCLUSIVE
 
 define_function testSuiteRun()
 {
-    logSetLevel(LOG_LEVEL_ERROR);
+    
 }
 
 (***********************************************************)

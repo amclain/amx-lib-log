@@ -121,9 +121,13 @@ define_function print(integer severity, char str[])
 	    case LOG_LEVEL_DETAIL:	postfix = "'DETAIL: '";
 	    default:			postfix = "'LOG: '";
 	}
+	
+	send_string dvLogConsole, "postfix, str";
     }
-    
-    send_string dvLogConsole, str;
+    else
+    {
+	send_string dvLogConsole, str;
+    }
 }
 
 /*
