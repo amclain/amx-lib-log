@@ -81,7 +81,7 @@ DEFINE_TYPE
 DEFINE_VARIABLE
 
 integer logLevel;
-integer logPrependSeverity;
+integer logDisablePrependSeverity;
 
 (***********************************************************)
 (*              LATCHING DEFINITIONS GO BELOW              *)
@@ -109,7 +109,7 @@ define_function print(integer severity, char str[])
 
     if (severity == LOG_LEVEL_NONE || severity > logLevel) return;
     
-    if (logPrependSeverity == true)
+    if (logDisablePrependSeverity == false)
     {
 	switch (severity)
 	{
@@ -132,6 +132,7 @@ define_function print(integer severity, char str[])
 
 /*
  *  Set the log level.
+ *
  *  Parameter accepts a log level constant.
  */
 define_function logSetLevel(integer lvl)
@@ -140,19 +141,20 @@ define_function logSetLevel(integer lvl)
 }
 
 /*
- *  Set whether or not the severity is prepended to the log
- *  message as a string.
+ *  Option to disable prepending the message severity
+ *  to the log string.
+ *
  *  Parameter accepts a boolean value.
  */
-define_function logSetPrependSeverity(integer prepend)
+define_function logSetDisablePrependSeverity(integer prepend)
 {
     if (prepend == false)
     {
-	logPrependSeverity = false;
+	logDisablePrependSeverity = false;
     }
     else
     {
-	logPrependSeverity = true;
+	logDisablePrependSeverity = true;
     }
 }
 
