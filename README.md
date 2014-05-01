@@ -1,4 +1,6 @@
-# amx-lib-log
+# AMX LOG LIBRARY
+
+amx-lib-log
 
 This library contains the code to perform logging and report various notifications to an AMX control system developer.
 
