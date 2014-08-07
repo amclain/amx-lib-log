@@ -1,6 +1,6 @@
 (***********************************************************
     AMX LOG LIBRARY
-    v0.0.1
+    v1.0.0
     
     Website: https://github.com/amclain/amx-lib-log
     
