@@ -79,8 +79,8 @@ DEFINE_TYPE
 (***********************************************************)
 DEFINE_VARIABLE
 
-integer logLevel;
-integer logDisablePrependSeverity;
+volatile integer logLevel;
+volatile integer logDisablePrependSeverity;
 
 (***********************************************************)
 (*         SUBROUTINE/FUNCTION DEFINITIONS GO BELOW        *)
@@ -88,11 +88,11 @@ integer logDisablePrependSeverity;
 
 /*
  *  Print a message to the log device.
- *  The severity parameter accepts a log message level (ex. LOG_LEVEL_INFO).
+ *  The severity parameter accepts a log message level (e.g. LOG_LEVEL_INFO).
  */
 define_function print(integer severity, char str[])
 {
-    char postfix[20];
+    char prefix[20];
 
     if (severity == LOG_LEVEL_NONE || severity > logLevel) return;
     
@@ -100,16 +100,16 @@ define_function print(integer severity, char str[])
     {
         switch (severity)
         {
-            case LOG_LEVEL_CRITICAL:    postfix = "'CRITICAL: '";
-            case LOG_LEVEL_ERROR:       postfix = "'ERROR: '";
-            case LOG_LEVEL_WARNING:     postfix = "'WARNING: '";
-            case LOG_LEVEL_INFO:        postfix = "'INFO: '";
-            case LOG_LEVEL_DEBUG:       postfix = "'DEBUG: '";
-            case LOG_LEVEL_DETAIL:      postfix = "'DETAIL: '";
-            default:                    postfix = "'LOG: '";
+            case LOG_LEVEL_CRITICAL:    prefix = "'CRITICAL: '";
+            case LOG_LEVEL_ERROR:       prefix = "'ERROR: '";
+            case LOG_LEVEL_WARNING:     prefix = "'WARNING: '";
+            case LOG_LEVEL_INFO:        prefix = "'INFO: '";
+            case LOG_LEVEL_DEBUG:       prefix = "'DEBUG: '";
+            case LOG_LEVEL_DETAIL:      prefix = "'DETAIL: '";
+            default:                    prefix = "'LOG: '";
         }
         
-        send_string dvLogConsole, "postfix, str";
+        send_string dvLogConsole, "prefix, str";
     }
     else
     {
