@@ -2,7 +2,7 @@
     AMX LOG LIBRARY
     v0.0.1
     
-    Website: https://sourceforge.net/projects/amx-lib-log/
+    Website: https://github.com/amclain/amx-lib-log
     
     
  -- THIS IS A THIRD-PARTY LIBRARY AND IS NOT AFFILIATED WITH --
