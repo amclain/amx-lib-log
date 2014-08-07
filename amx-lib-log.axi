@@ -62,13 +62,13 @@ dvLogConsole = 0:0:0;
 DEFINE_CONSTANT
 
 // Log message levels.
-LOG_LEVEL_NONE		= 0;
-LOG_LEVEL_CRITICAL	= 1;
-LOG_LEVEL_ERROR		= 2;
-LOG_LEVEL_WARNING	= 3;
-LOG_LEVEL_INFO		= 4;
-LOG_LEVEL_DEBUG		= 5;
-LOG_LEVEL_DETAIL	= 6;
+LOG_LEVEL_NONE          = 0;
+LOG_LEVEL_CRITICAL      = 1;
+LOG_LEVEL_ERROR         = 2;
+LOG_LEVEL_WARNING       = 3;
+LOG_LEVEL_INFO          = 4;
+LOG_LEVEL_DEBUG         = 5;
+LOG_LEVEL_DETAIL        = 6;
 
 (***********************************************************)
 (*              DATA TYPE DEFINITIONS GO BELOW             *)
@@ -111,22 +111,22 @@ define_function print(integer severity, char str[])
     
     if (logDisablePrependSeverity == false)
     {
-	switch (severity)
-	{
-	    case LOG_LEVEL_CRITICAL:	postfix = "'CRITICAL: '";
-	    case LOG_LEVEL_ERROR:	postfix = "'ERROR: '";
-	    case LOG_LEVEL_WARNING:	postfix = "'WARNING: '";
-	    case LOG_LEVEL_INFO:	postfix = "'INFO: '";
-	    case LOG_LEVEL_DEBUG:	postfix = "'DEBUG: '";
-	    case LOG_LEVEL_DETAIL:	postfix = "'DETAIL: '";
-	    default:			postfix = "'LOG: '";
-	}
-	
-	send_string dvLogConsole, "postfix, str";
+        switch (severity)
+        {
+            case LOG_LEVEL_CRITICAL:    postfix = "'CRITICAL: '";
+            case LOG_LEVEL_ERROR:       postfix = "'ERROR: '";
+            case LOG_LEVEL_WARNING:     postfix = "'WARNING: '";
+            case LOG_LEVEL_INFO:        postfix = "'INFO: '";
+            case LOG_LEVEL_DEBUG:       postfix = "'DEBUG: '";
+            case LOG_LEVEL_DETAIL:      postfix = "'DETAIL: '";
+            default:                    postfix = "'LOG: '";
+        }
+        
+        send_string dvLogConsole, "postfix, str";
     }
     else
     {
-	send_string dvLogConsole, str;
+        send_string dvLogConsole, str;
     }
 }
 
@@ -150,11 +150,11 @@ define_function logSetDisablePrependSeverity(integer prepend)
 {
     if (prepend == false)
     {
-	logDisablePrependSeverity = false;
+        logDisablePrependSeverity = false;
     }
     else
     {
-	logDisablePrependSeverity = true;
+        logDisablePrependSeverity = true;
     }
 }
 
