@@ -31,7 +31,6 @@
     limitations under the License.
 ************************************************************)
 
-PROGRAM_NAME='amx-lib-log'
 #if_not_defined AMX_LIB_LOG
 #define AMX_LIB_LOG 1
 (***********************************************************)
@@ -84,20 +83,8 @@ integer logLevel;
 integer logDisablePrependSeverity;
 
 (***********************************************************)
-(*              LATCHING DEFINITIONS GO BELOW              *)
-(***********************************************************)
-DEFINE_LATCHING
-
-(***********************************************************)
-(*         MUTUALLY EXCLUSIVE DEFINITIONS GO BELOW         *)
-(***********************************************************)
-DEFINE_MUTUALLY_EXCLUSIVE
-
-(***********************************************************)
 (*         SUBROUTINE/FUNCTION DEFINITIONS GO BELOW        *)
 (***********************************************************)
-(* EXAMPLE: DEFINE_FUNCTION <RETURN_TYPE> <NAME> (<PARAMETERS>) *)
-(* EXAMPLE: DEFINE_CALL '<NAME>' (<PARAMETERS>) *)
 
 /*
  *  Print a message to the log device.
