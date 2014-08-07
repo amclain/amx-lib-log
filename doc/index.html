@@ -65,7 +65,7 @@
 <h1 id="label-AMX+LOG+LIBRARY">AMX LOG LIBRARY</h1>
 
 <p>amx-lib-log This library contains the code to perform logging and report
-various notifications to the system developer.</p>
+various notifications to a control system developer or technician.</p>
 
 <p><em>THIS IS A THIRD-PARTY LIBRARY AND IS NOT AFFILIATED WITH THE AMX
 ORGANIZATION</em></p>
@@ -104,10 +104,63 @@ href="https://github.com/amclain/amx-lib-log/issues">github.com/amclain/amx-lib-
 
 <p>Mercurial users can use <a href="http://hg-git.github.io/">Hg-Git</a> to
 interact with GitHub repositories.</p>
+
+<h2 id="label-Usage">Usage</h2>
+
+<h3 id="label-Including+The+Library">Including The Library</h3>
+
+<p>The easiest way to include the log library is in the project&#39;s master
+<code>axs</code> file. If the log library is placed at the top of the list
+of includes, it will propagate to the include files for the project and
+won&#39;t have to be included again.</p>
+
+<p>In the <code>DEFINE_START</code> section, the log level should be set to
+the least important message type you wish to see logged. For example, in
+development this may be <code>LOG_LEVEL_DEBUG</code>, and in production it
+may be <code>LOG_LEVEL_INFO</code>. Messages of this importance or greater
+will be visible, and less important messages will be filtered.</p>
+
+<pre class="code ruby"><code class="ruby">(***********************************************************)
+(*                    INCLUDES GO BELOW                    *)
+(***********************************************************)
+
+#include &#39;amx-lib-log&#39;;
+
+// Project includes.
+#include &#39;...&#39;
+
+(***********************************************************)
+(*                 STARTUP CODE GOES BELOW                 *)
+(***********************************************************)
+DEFINE_START
+
+logSetLevel(LOG_LEVEL_INFO);</code></pre>
+
+<h3 id="label-Logging+Data">Logging Data</h3>
+
+<p>Data can be output to the log by using the <code>print()</code> function
+and specifying the message&#39;s importance with a <code>LOG_LEVEL</code>
+constant.</p>
+
+<pre class="code ruby"><code class="ruby">define_function videoPatch(integer input, integer output)
+{
+    // Source code ...
+    
+    print(LOG_LEVEL_INFO, &quot;&#39;Video Patch: &#39;, itoa(input), &#39; -&gt; &#39;, itoa(output)&quot;);
+}</code></pre>
+
+<h3 id="label-Viewing+The+Log">Viewing The Log</h3>
+
+<p>Log items can be viewed in the NetLinx Diagnostics via the
+<code>Diagnostics</code> tab.</p>
+
+<pre class="code ruby"><code class="ruby">Line     15 (10:07:41):: INFO: Video Patch: 21 -&gt; 14</code></pre>
+
+<p>Disk-based persistent logging is not implemented yet.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Aug  7 09:32:02 2014 by
+  Generated on Thu Aug  7 10:24:14 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

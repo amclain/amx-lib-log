@@ -1,6 +1,7 @@
-\.src
-\.tkn
-\.tko
+\.src$
+\.tkn$
+\.tko$
 ~$
-\.swp
-\.orig
+\.swp$
+\.orig$
+\.yardoc/
