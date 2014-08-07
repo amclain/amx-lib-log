@@ -16,7 +16,7 @@
     It is recommended to use LOG_LEVEL_WARNING or LOG_LEVEL_INFO
     in a production environment.
 *************************************************************
-    Copyright 2012 Alex McLain
+    Copyright 2012, 2014 Alex McLain
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
