@@ -88,7 +88,6 @@ define_function videoPatch(integer input, integer output)
     
     print(LOG_LEVEL_INFO, "'Video Patch: ', itoa(input), ' -> ', itoa(output)");
 }
-
 ```
 
 
@@ -100,4 +99,24 @@ Log items can be viewed in the NetLinx Diagnostics via the `Diagnostics` tab.
 Line     15 (10:07:41):: INFO: Video Patch: 21 -> 14
 ```
 
-Disk-based persistent logging is not implemented yet.
+Disk-based persistent logging is not implemented yet. However, the log output
+can be redirected to your own disk logging utility. See: `Redirecting The Log`.
+
+
+### Redirecting The Log
+
+The log output is sent to a NetLinx device, and therefore is not limited to being
+displayed in the NetLinx console. By defining the device `dvLogConsole` before
+including the logging library, the log can be directed to a user-defined device
+like an RS232 port, a network connection, or a module.
+
+``` c
+(***********************************************************)
+(*           DEVICE NUMBER DEFINITIONS GO BELOW            *)
+(***********************************************************)
+DEFINE_DEVICE
+
+dvLogConsole = 33000:1:0;  // Override the console output device.
+
+#include 'amx-lib-log'
+```

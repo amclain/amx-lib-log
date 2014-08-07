@@ -156,11 +156,30 @@ constant.</p>
 
 <pre class="code ruby"><code class="ruby">Line     15 (10:07:41):: INFO: Video Patch: 21 -&gt; 14</code></pre>
 
-<p>Disk-based persistent logging is not implemented yet.</p>
+<p>Disk-based persistent logging is not implemented yet. However, the log
+output can be redirected to your own disk logging utility. See:
+<code>Redirecting The Log</code>.</p>
+
+<h3 id="label-Redirecting+The+Log">Redirecting The Log</h3>
+
+<p>The log output is sent to a NetLinx device, and therefore is not limited to
+being displayed in the NetLinx console. By defining the device
+<code>dvLogConsole</code> before including the logging library, the log can
+be directed to a user-defined device like an RS232 port, a network
+connection, or a module.</p>
+
+<pre class="code ruby"><code class="ruby">(***********************************************************)
+(*           DEVICE NUMBER DEFINITIONS GO BELOW            *)
+(***********************************************************)
+DEFINE_DEVICE
+
+dvLogConsole = 33000:1:0;  // Override the console output device.
+
+#include &#39;amx-lib-log&#39;</code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Aug  7 10:24:14 2014 by
+  Generated on Thu Aug  7 14:57:03 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>
